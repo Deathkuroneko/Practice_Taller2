@@ -5,7 +5,7 @@ import javax.imageio.ImageIO;
 
 public class Simples {
 
-    public void grisEscala(BufferedImage entrada,int ancho,int alto){
+    public void grisEscala(BufferedImage entrada,int ancho,int alto, String img){
 
         BufferedImage out = new BufferedImage(ancho, alto, BufferedImage.TYPE_INT_ARGB);
 
@@ -28,11 +28,11 @@ public class Simples {
             
         }
 
-        imprimirImg(out,"png","Gris");
+        imprimirImg(out,"png","Gris", img);
 
     }
 
-    public void blancoNegro(BufferedImage entrada,int ancho,int alto){
+    public void blancoNegro(BufferedImage entrada,int ancho,int alto, String img){
 
         BufferedImage out = new BufferedImage(ancho, alto, BufferedImage.TYPE_INT_ARGB);
 
@@ -56,11 +56,11 @@ public class Simples {
             
         }
 
-        imprimirImg(out,"png","BN");
+        imprimirImg(out,"png","BN", img);
 
     }
 
-    public void negativo(BufferedImage entrada,int ancho,int alto){
+    public void negativo(BufferedImage entrada,int ancho,int alto, String img){
 
         BufferedImage out = new BufferedImage(ancho, alto, BufferedImage.TYPE_INT_ARGB);
 
@@ -85,11 +85,11 @@ public class Simples {
             
         }
 
-        imprimirImg(out,"png","Negativo");
+        imprimirImg(out,"png","Negativo", img);
 
     }
 
-    public void retro(BufferedImage entrada,int ancho,int alto, int niveles){
+    public void retro(BufferedImage entrada,int ancho,int alto, int niveles, String img){
 
         BufferedImage out = new BufferedImage(ancho, alto, BufferedImage.TYPE_INT_ARGB);
 
@@ -120,7 +120,7 @@ public class Simples {
             
         }
 
-        imprimirImg(out,"png","Retro"+niveles);
+        imprimirImg(out,"png","Retro"+niveles, img);
 
     }    
 
@@ -128,9 +128,15 @@ public class Simples {
         return Math.max(0, Math.min(255, num));
     }
 
-    public void imprimirImg(BufferedImage out, String tipo, String nombre){
+    public void imprimirImg(BufferedImage out, String tipo, String nombre, String img){
         try {
-            ImageIO.write(out,tipo, new File("Img\\Img"+ nombre +".png"));
+            if (img.equals("i")) {
+                ImageIO.write(out,tipo, new File("Img\\imgImg1\\imgImg1"+ nombre +".png"));
+            }
+            if (img.equals("l")) {
+                ImageIO.write(out,tipo, new File("Img\\Lalaimg\\ImgLala"+ nombre +".png"));
+            }
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
