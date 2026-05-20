@@ -17,8 +17,10 @@ public class App {
             int ancho = image.getWidth();
             int alto = image.getHeight();
 
-            sp.grisEscala(image, ancho, alto);
-            sp.blancoNegro(image, ancho, alto);
+            //sp.grisEscala(image, ancho, alto);
+            //sp.blancoNegro(image, ancho, alto);
+            sp.negativo(image, ancho, alto);
+            sp.retro(image, ancho, alto, 15);
 
             System.out.println("Imagen creada");
         } catch (Exception e) {
